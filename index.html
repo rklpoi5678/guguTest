@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="koreaWaterMelon.css">
+</head>
+<body>
+    <section class="landing-page">
+        <header>
+            <div class="container">
+                <a href="#" class="logo">
+                    <h1>합천<b>멜론</b></h1>
+                </a>
+                <ul class="links">
+                    <a href="#">
+                        <li>홈</li>
+                    </a><a href="#">
+                        <li>서비스</li>
+                    </a><a href="#">
+                        <li>회사소개</li>
+                    </a><a href="#">
+                        <li>연락처</li>
+                    </a>
+                </ul>
+            </div>
+        </header>
+        <div class="content">
+            <div class="container">
+                <div class="info">
+                    <h1>정직한</h1>
+                    <p>맛있는 멜론 소비자를 <br>생각하는 회사입니다 아멘입니다</p>
+                    <input type="text" id="name">
+                    <p id="sound"></p>
+                    <button onclick="getSound()">자세히보기</button>
+                </div>
+                <div class="image">
+                    <img src="https://i.postimg.cc/65QxYYzh/001234.png" alt="">
+                </div>
+            </div>
+            <div class="mid container">
+                <div class="info">
+                    <h1>후숙과일</h1>
+                    <p>네트가 많고 3~5일 익혀드시면 맛이있습니다</p>
+                </div>
+                <div class="image">
+                    <img src="https://i.postimg.cc/65QxYYzh/001234.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="bottom detail-text">
+                <b><p>rklpoi1234@gmail.com</p></b>
+                <b><p>010-2180-6913</p></b>
+                <ul>
+                    <li>facebook</li>
+                    <li>instagram</li>
+                    <li>naver blog</li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+    <script>
+        function getSound() {
+            const name = document.getElementById('name').value;
+            fetch(`http://localhost:3000/dog/${name}`)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.sound)
+                document.getElementById('sound').innerHTML = data.sound
+            });
+        }
+    </script> 
+</body>
+</html>
